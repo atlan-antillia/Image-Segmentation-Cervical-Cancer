@@ -90,7 +90,7 @@ The script performs the following image processings.<br>
 3 Create rotated and flipped image and mask files to augment the orginal image and mask files.
 </pre>
 We have not used images and *.dat files in <b>CROPPED</b> folders to create images and masks dataset for 
-Tensorflow-Slightly-Flexible-UNe.<br> 
+Tensorflow-Slightly-Flexible-UNet Model.<br> 
 The created <b>256X256CervicalCancer</b> dataset has the following folder structure.<br>
 <pre>
 ./256X256CervicalCancer
