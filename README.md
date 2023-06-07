@@ -214,11 +214,11 @@ Since
 <pre>
 loss = "bce_iou_loss" 
 </pre> 
-, which stands for a mixed loss functions, "binary crossentroy loss" and "intersection over union loss",<br>
+, which stands for a mixed loss function of "binary crossentroy loss" and "intersection over union loss",<br>
 and <pre>metrics = ["iou_coef", "sensitivity", "specificity"] </pre> are specified 
 in <b>train_eval_infer.config</b> file,
 <b>bce_iou_loss</b> function for loss, <b>iou_coef</b>, <b>sensitivity</b> and <b>specificity</b> functions for metrics</b> 
-functions are used to compile our model as shown below.
+are used to compile our model as shown below.
 <pre>
     # Read a loss function name from a config file, and eval it.
     # loss = "binary_crossentropy"
