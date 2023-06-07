@@ -210,9 +210,14 @@ threshold = 60
 
 </pre>
 
-Since <pre>loss = ""bce_iou_loss""</pre> and <pre>metrics = ["iou_coef", "sensitivity", "specificity"] </pre> are specified 
+Since 
+<pre>
+loss = "bce_iou_loss" 
+</pre> 
+, which stands for a mixed loss functions, "binary crossentroy loss" and "intersection over union loss",<br>
+and <pre>metrics = ["iou_coef", "sensitivity", "specificity"] </pre> are specified 
 in <b>train_eval_infer.config</b> file,
-<b>bce_iou_loss</b>, <b>iou_coef</b>, <b>sensitivity</b>, <b>specificity</b> 
+<b>bce_iou_loss</b> function for loss, <b>iou_coef</b>, <b>sensitivity</b> and <b>specificity</b> functions for metrics</b> 
 functions are used to compile our model as shown below.
 <pre>
     # Read a loss function name from a config file, and eval it.
