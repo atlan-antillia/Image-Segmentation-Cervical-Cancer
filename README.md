@@ -154,7 +154,7 @@ Please run the following bat file.<br>
 </pre>
 , which simply runs the following command.<br>
 <pre>
->python TensorflowUNetBrainTumorTrainer.py
+>python TensorflowUNetTrainer.py
 </pre>
 
 <pre>
