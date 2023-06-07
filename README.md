@@ -6,6 +6,8 @@
 This is an experimental project for Image-Segmentation of Cervical-Cancer by using
 our <a href="https://github.com/atlan-antillia/Tensorflow-Slightly-Flexible-UNet">Tensorflow-Slightly-Flexible-UNet</a> Model.
 <br>
+It contains a typical classic Tensorflow2 UNet implementation <a href="./TensorflowUNet.py">TensorflowUNet.py</a> and 
+<a href="./TensorflowAttentionUNet.py">TensorflowAttentionUNet.py</a>
 </p>
 <p>
 The image dataset used here has been taken from the following web site.
