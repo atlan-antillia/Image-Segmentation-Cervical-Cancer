@@ -24,7 +24,7 @@ import glob
 import cv2
 import traceback
 
-from PIL import Image, ImageDraw, ImageFilter
+#from PIL import Image, ImageDraw, ImageFilter
 
 class ImageMaskDatasetGenerator:
 
@@ -120,6 +120,7 @@ class ImageMaskDatasetGenerator:
     resized = cv2.resize(image, dsize=(self.W, self.H))
     if self.rotation and dataset !=self.TEST:
       self.rotate(resized, category, name, output_dir)
+      self.flip(resized, category, name, output_dir)
     else:
       resized_filename   =  category + "_" + name + self.output_img
       resized_filepath = os.path.join(output_dir, resized_filename )
@@ -142,6 +143,7 @@ class ImageMaskDatasetGenerator:
     resized = cv2.resize(image, (self.H, self.W))
     if self.rotation and dataset !=self.TEST:
       self.rotate(resized, category, name, output_dir)
+      self.flip(resized, category, name, output_dir)
     else:
       resized_filename   =  category + "_" + name + self.output_img
       resized_filepath = os.path.join(output_dir, resized_filename )
@@ -171,6 +173,7 @@ class ImageMaskDatasetGenerator:
 
     if self.rotation and dataset !=self.TEST:
       self.rotate(resized, category, name, output_dir)
+      self.flip(resized, category, name, output_dir)
     else:
       resized_filename   =  category + "_" + name + self.output_img
       resized_filepath = os.path.join(output_dir, resized_filename )
@@ -213,6 +216,7 @@ class ImageMaskDatasetGenerator:
 
   def rotate(self, image, category, name, output_dir):
     ANGLES = [0, 90, 180, 270]
+    #ANGLES = [0, 60, 120, 180, 240, 280]
     print("=== Output_dir {}".format(output_dir))
     for angle in ANGLES:
       center = (self.W/2, self.H/2)
@@ -226,6 +230,18 @@ class ImageMaskDatasetGenerator:
 
       cv2.imwrite(rotated_filepath, rotated)
 
+
+  def flip(self, image, category, name, output_dir):
+    DIRECTIONS = [0, -1, 1]
+    print("=== Output_dir {}".format(output_dir))
+    for direction in DIRECTIONS:
+      flipped = cv2.flip(image, direction)
+
+      flipped_filename         = "flipped-" + str(direction) + "-" + "_" + category + "_" + name + self.output_img
+      flipped_filepath = os.path.join(output_dir, flipped_filename )
+      print("---- Saved {}".format(flipped_filepath))
+
+      cv2.imwrite(flipped_filepath, flipped)
 
 """
 Input
