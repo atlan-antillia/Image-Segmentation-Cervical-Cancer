@@ -338,5 +338,27 @@ Toshiyuki Arai @antillia.com<br>
 https://github.com/atlan-antillia/EfficientNet-Cervical-Cancer
 </pre>
 
+<b>3. Liquid based cytology pap smear images for multi-class diagnosis of cervical cancer</b><br>
+<pre>
+https://data.mendeley.com/datasets/zddtpgzv63/4
+</pre>
+
+<b>4. Pap-smear Benchmark Data For Pattern Classiﬁcation<br></b>
+Jan Jantzen, Jonas Norup , George Dounias , Beth Bjerregaard<br>
+
+<pre>
+https://www.researchgate.net/publication/265873515_Pap-smear_Benchmark_Data_For_Pattern_Classification
+</pre>
+<b>5. Deep Convolution Neural Network for Malignancy Detection and Classification in Microscopic Uterine Cervix Cell Images</b><br>
+Shanthi P B,1 Faraz Faruqi, Hareesha K S, and Ranjini Kudva<br>
+<pre>
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7062987/
+</pre>
+
+<b>6. DeepCyto: a hybrid framework for cervical cancer classification by using deep feature fusion of cytology images</b><br>
+Swati Shinde, Madhura Kalbhor, Pankaj Wajire<br>
+<pre>
+https://www.aimspress.com/article/doi/10.3934/mbe.2022301?viewType=HTML#b40
+</pre>
 
 
