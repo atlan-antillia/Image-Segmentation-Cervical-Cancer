@@ -81,12 +81,12 @@ The dataset has the following folder structure.<br>
 <h3>
 2.2 Prepare dataset
 </h3>
-By using Python script<a href="./256x256ImageMaskDatasetGenerator.py">256x256ImageMaskDatasetGenerator.py</a>, we have created <b>256X256CervicalCancer</b> dataset from the original image bmp files and mask data files
+By using Python script <a href="./256x256ImageMaskDatasetGenerator.py">256x256ImageMaskDatasetGenerator.py</a>, we have created <b>256X256CervicalCancer</b> dataset from the original image bmp files and mask data files
 in the <b>SipakMed</b> dataset.<br>
 The script performs the following image processings.<br>
 <pre>
 1 Resize all bmp files to 256x256 square jpg files
-2 Create 256x256 square mask jpg files correspondingto image files from <b>*_cyt*.dat</b> files.
+2 Create 256x256 square mask jpg files corresponding to image files from <b>*_cyt*.dat</b> files.
 3 Create rotated and flipped image and mask files to augment the orginal image and mask files.
 </pre>
 The created <b>256X256CervicalCancer</b> dataset has the following folder structure.<br>
