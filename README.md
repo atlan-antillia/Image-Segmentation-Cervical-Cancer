@@ -89,6 +89,8 @@ The script performs the following image processings.<br>
 2 Create 256x256 square mask jpg files corresponding to image files from <b>*_cyt*.dat</b> files.
 3 Create rotated and flipped image and mask files to augment the orginal image and mask files.
 </pre>
+We have not used images and *.dat files in <b>CROPPED</b> folders to create images and masks dataset for 
+Tensorflow-Slightly-Flexible-UNe.<br> 
 The created <b>256X256CervicalCancer</b> dataset has the following folder structure.<br>
 <pre>
 ./256X256CervicalCancer
