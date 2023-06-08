@@ -13,8 +13,13 @@
 # limitations under the License.
 #
 
-# TensorflowUNetTileInfer.py
-# 2023/06/05 to-arai
+# TensorflowAttentionUNetBrainTumorTrainer.py
+# 2023/05/30 to-arai
+
+# This is based on the code in the following web sites:
+
+# 1. Keras U-Net starter - LB 0.277
+# https://www.kaggle.com/code/keegil/keras-u-net-starter-lb-0-277/notebook
 
 
 import os
@@ -28,37 +33,28 @@ import traceback
 
 from ConfigParser import ConfigParser
 from ImageMaskDataset import ImageMaskDataset
-
-from TensorflowUNet import TensorflowUNet
+from TensorflowAttentionUNet import TensorflowAttentionUNet
 
 MODEL  = "model"
 TRAIN  = "train"
-INFER  = "infer"
-TILEDINFER = "tiledinfer"
+
 
 if __name__ == "__main__":
   try:
-    config_file    = "./train_eval_infer.config"
+    config_file    = "./attention_train_eval_infer.config"
     if len(sys.argv) == 2:
       config_file = sys.argv[1]
-    config     = ConfigParser(config_file)
-    images_dir = config.get(TILEDINFER, "images_dir")
-    output_dir = config.get(TILEDINFER, "output_dir")
- 
-    # Create a UNetMolde and compile
-    model          = TensorflowUNet(config_file)
-    
-    if not os.path.exists(images_dir):
-      raise Exception("Not found " + images_dir)
-    
-    if os.path.exists(output_dir):
-      shutil.rmtree(output_dir)
-    if not os.path.exists(output_dir):
-      os.makedirs(output_dir)
 
-    model.infer_tiles(images_dir, output_dir, expand=True)
+    config   = ConfigParser(config_file)
+
+    # Create a UNetMolde and compile
+    model   = TensorflowAttentionUNet(config_file)
+    
+    dataset = ImageMaskDataset(config_file)
+    x_train, y_train = dataset.create(dataset=TRAIN)
+
+    model.train(x_train, y_train)
 
   except:
     traceback.print_exc()
     
-

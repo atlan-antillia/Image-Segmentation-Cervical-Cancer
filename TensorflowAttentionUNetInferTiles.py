@@ -13,40 +13,39 @@
 # limitations under the License.
 #
 
-# TensorflowUNetTileInfer.py
-# 2023/06/05 to-arai
-
+# TensorflowAttentionUNetInfer.py
+# 2023/05/31 to-arai
 
 import os
+import sys
+import shutil
+
 
 os.environ["TF_FORCE_GPU_ALLOW_GROWTH"] = "true"
 os.environ["TF_ENABLE_GPU_GARBAGE_COLLECTION"]="false"
 
-import shutil
-import sys
 import traceback
 
 from ConfigParser import ConfigParser
-from ImageMaskDataset import ImageMaskDataset
 
-from TensorflowUNet import TensorflowUNet
+from TensorflowAttentionUNet import TensorflowAttentionUNet
 
 MODEL  = "model"
 TRAIN  = "train"
 INFER  = "infer"
-TILEDINFER = "tiledinfer"
+
 
 if __name__ == "__main__":
   try:
-    config_file    = "./train_eval_infer.config"
+    config_file    = "./attention_train_eval_infer.config"
     if len(sys.argv) == 2:
       config_file = sys.argv[1]
     config     = ConfigParser(config_file)
-    images_dir = config.get(TILEDINFER, "images_dir")
-    output_dir = config.get(TILEDINFER, "output_dir")
+    images_dir = config.get(INFER, "images_dir")
+    output_dir = config.get(INFER, "output_dir")
  
     # Create a UNetMolde and compile
-    model          = TensorflowUNet(config_file)
+    model          = TensorflowAttentionUNet(config_file)
     
     if not os.path.exists(images_dir):
       raise Exception("Not found " + images_dir)
@@ -56,9 +55,8 @@ if __name__ == "__main__":
     if not os.path.exists(output_dir):
       os.makedirs(output_dir)
 
-    model.infer_tiles(images_dir, output_dir, expand=True)
+    model.infer(images_dir, output_dir, expand=True)
 
   except:
     traceback.print_exc()
     
-
