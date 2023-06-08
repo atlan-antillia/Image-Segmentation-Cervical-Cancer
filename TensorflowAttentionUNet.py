@@ -61,6 +61,7 @@ from TensorflowUNet import TensorflowUNet
 MODEL  = "model"
 TRAIN  = "train"
 INFER  = "infer"
+TILEDINFER = "tiledinfer"
 
 BEST_MODEL_FILE = "best_model.h5"
 

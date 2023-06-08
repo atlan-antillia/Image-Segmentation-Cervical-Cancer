@@ -88,6 +88,7 @@ from PIL import Image
 MODEL  = "model"
 TRAIN  = "train"
 INFER  = "infer"
+TILEDINFER = "tiledinfer"
 
 BEST_MODEL_FILE = "best_model.h5"
 
@@ -367,7 +368,7 @@ class TensorflowUNet:
 
     merged_dir   = None
     try:
-      merged_dir = self.config.get(INFER, "merged_dir")
+      merged_dir = self.config.get(TILEDINFER, "merged_dir")
       if os.path.exists(merged_dir):
         shutil.rmtree(merged_dir)
       if not os.path.exists(merged_dir):
@@ -380,9 +381,9 @@ class TensorflowUNet:
       w, h  = image.size
       split_size  =  self.config.get(MODEL, "image_width")
 
-
-      vert_split_num  = w // split_size + 1
-      horiz_split_num = h // split_size + 1
+      # 2023/06/10 w <-> h
+      vert_split_num  = h // split_size + 1
+      horiz_split_num = w // split_size + 1
       background      = Image.new("L", (w, h))
 
       for j in range(vert_split_num):
@@ -403,7 +404,7 @@ class TensorflowUNet:
           #input("HHHIT")  
       basename = os.path.basename(image_file)
       output_file = os.path.join(output_dir, basename)
-      background.show()
+      #background.show()
       #input("----")
       background.save(output_file)
       
