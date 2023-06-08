@@ -14,7 +14,7 @@
 #
 
 # TensorflowUNetTileInfer.py
-# 2023/06/05 to-arai
+# 2023/06/08 to-arai
 
 
 import os
@@ -34,6 +34,9 @@ from TensorflowUNet import TensorflowUNet
 MODEL  = "model"
 TRAIN  = "train"
 INFER  = "infer"
+
+# Added section name [tiledinfer] to train_eval_infer.config
+
 TILEDINFER = "tiledinfer"
 
 if __name__ == "__main__":
