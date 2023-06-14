@@ -53,11 +53,44 @@ U-Net: Convolutional Networks for Biomedical Image Segmentation
 
 <br>
 <h2>
-2 Prepare dataset
+2. Install Image-Segmentation-Cervical-Cancer
+</h2>
+Please clone Image-Segmentation-Cervical-Cancer.git in the working folder <b>c:\google</b>.<br>
+<pre>
+>git clone https://github.com/atlan-antillia/Image-Segmentation-Cervical-Cancer.git<br>
+</pre>
+You can see the following folder structure in your working folder.<br>
+
+<pre>
+Image-Segmentation-Cervical-Cancer
+├─asset
+└─projects
+    └─Cervical-Cancer
+        ├─256x256CervicalCancer
+        │  ├─test
+        │  │  └─Metaplastic
+        │  │      ├─images
+        │  │      └─masks
+        │  ├─train
+        │  └─valid
+        │      └─Metaplastic
+        │          ├─images
+        │          └─masks
+        ├─eval
+        ├─generator
+        ├─mini_test
+        │  └─Metalplastic
+        ├─mini_test_output
+        ├─mini_test_output_merged
+        └─models
+</pre>
+
+<h2>
+3 Prepare dataset
 </h2>
 
 <h3>
-2.1 Download master dataset
+3.1 Download master dataset
 </h3>
  Please download the original dataset from the following link<br>
 <pre>
@@ -85,7 +118,7 @@ The dataset has the following folder structure.<br>
 </pre>
 
 <h3>
-2.2 Prepare dataset
+3.2 Prepare dataset
 </h3>
 By using Python script <a href="./256x256ImageMaskDatasetGenerator.py">256x256ImageMaskDatasetGenerator.py</a>, we have created <b>256X256CervicalCancer</b> dataset from the original image bmp files and mask data files
 in the <b>SipakMed</b> dataset.<br>
@@ -148,11 +181,10 @@ Fo simplicity, we will deal with only <b>Metaplastic</b> category.
 <br>
 <b>Train_Metaplastic_masks_sample</b><br>
 <img src="./asset/train_Metaplastic_masks_sample.png" width="1024" height="auto">
-
 <br>
 
 <h2>
-3 Train TensorflowUNet Model
+4 Train TensorflowUNet Model
 </h2>
  We have trained Cervical-Cancer TensorflowUNet Model by using the following
  <b>train_eval_infer.config</b> file. <br>
@@ -254,7 +286,7 @@ The val_loss is the follwing.<br>
 
 
 <h2>
-4 Evaluation
+5 Evaluation
 </h2>
  We have evaluated prediction accuracy of our Pretrained Cervical-Cancer Model by using <b>valid</b> dataset.
 Please move to ./projects/Cervical-Cancer/ and run the following bat file.<br>
@@ -270,7 +302,7 @@ The evaluation result of this time is the following.<br>
 <br>
 
 <h2>
-5 Inference 
+6 Inference 
 </h2>
 We have also tried to infer the segmented region for <pre>
 images_dir    = "./256x256CervicalCancer/test/Metaplastic/images" 
