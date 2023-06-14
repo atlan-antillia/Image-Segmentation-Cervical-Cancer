@@ -1,1 +1,0 @@
-python ./TensorflowUNetEvaluator.py

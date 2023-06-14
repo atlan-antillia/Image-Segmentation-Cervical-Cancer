@@ -1,4 +1,4 @@
-# Image-Segmentation-Cervical-Cancer (Updated: 2023/06/07)
+# Image-Segmentation-Cervical-Cancer (Updated: 2023/06/15)
 <h2>
 1 Image-Segmentation-Cervical-Cancer
 </h2>
@@ -46,6 +46,10 @@ See also:
 U-Net: Convolutional Networks for Biomedical Image Segmentation
  https://arxiv.org/pdf/1505.04597.pdf
 </pre>
+
+<ul>
+<li>2023/06/15: Created ./projects/Cervical-Cancer folder.</li>
+</ul>
 
 <br>
 <h2>
@@ -152,13 +156,13 @@ Fo simplicity, we will deal with only <b>Metaplastic</b> category.
 </h2>
  We have trained Cervical-Cancer TensorflowUNet Model by using the following
  <b>train_eval_infer.config</b> file. <br>
-Please run the following bat file.<br>
+Please move to ./projects/Cervical-Cancer and run the following bat file.<br>
 <pre>
 >1.train.bat
 </pre>
 , which simply runs the following command.<br>
 <pre>
->python TensorflowUNetTrainer.py
+>python ../../TensorflowUNetTrainer.py train_eval_infer.config
 </pre>
 
 <pre>
@@ -211,7 +215,6 @@ merged_dir = "./mini_test_output_merged"
 blur      = True
 binarize  = True
 threshold = 60
-
 </pre>
 
 Since 
@@ -254,13 +257,13 @@ The val_loss is the follwing.<br>
 4 Evaluation
 </h2>
  We have evaluated prediction accuracy of our Pretrained Cervical-Cancer Model by using <b>valid</b> dataset.
-Please run the following bat file.<br>
+Please move to ./projects/Cervical-Cancer/ and run the following bat file.<br>
 <pre>
 >2.evalute.bat
 </pre>
 , which simply run the following command.<br>
 <pre>
->python TensorflowUNetEvaluator.py
+>python ../../TensorflowUNetEvaluator.py train_eval_infer.config
 </pre>
 The evaluation result of this time is the following.<br>
 <img src="./asset/evaluate_console_output_at_epoch_35_0607.png" width="720" height="auto"><br>
@@ -273,12 +276,14 @@ We have also tried to infer the segmented region for <pre>
 images_dir    = "./256x256CervicalCancer/test/Metaplastic/images" 
 </pre> dataset defined in <b>train_eval_infer.config</b>,
  by using our Pretrained Cervical-Cancer Model.<br>
+
 <pre>
 >3.infer.bat
 </pre>
 , which simply runs the following command.<br>
+Please move to ./projects/Cervical-Cancer/ and run the following bat file.<br>
 <pre>
->python TensorflowUNetInfer.py
+>python ../../TensorflowUNetInferencer.py train_eval_infer.config
 </pre>
 
 <b>Input images (256x256CervicalCancer/test/Metaplastic/images) </b><br>

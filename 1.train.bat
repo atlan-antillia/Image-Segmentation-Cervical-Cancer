@@ -1,3 +1,0 @@
-
-python ./TensorflowUNetTrainer.py
-

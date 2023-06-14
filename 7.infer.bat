@@ -1,1 +1,0 @@
-python ./TensorflowAttentionUNetInfer.py

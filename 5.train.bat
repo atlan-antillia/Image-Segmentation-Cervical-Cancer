@@ -1,2 +1,0 @@
-python ./TensorflowAttentionUNetTrainer.py
-
